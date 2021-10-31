@@ -103,6 +103,11 @@ $('#izmeniForm').submit(function () {
     $inputs.prop('disabled', true);
 
     // kreirati request za UPDATE handler
+    req = $.ajax({
+        url: 'handler/update.php',
+        type:'post',
+        data: serializedData
+    });
 
     request.done(function (response, textStatus, jqXHR) {
 
@@ -112,12 +117,15 @@ $('#izmeniForm').submit(function () {
             location.reload(true);
             //$('#izmeniForm').reset;
         }
-        else console.log('Kolokvijum nije izmenjen ' + response);
+        else { console.log('Kolokvijum nije izmenjen ' + response);
         console.log(response);
+        location.reload(true);
+    }
     });
 
     request.fail(function (jqXHR, textStatus, errorThrown) {
         console.error('The following error occurred: ' + textStatus, errorThrown);
+        location.reload(true);
     });
 
 
