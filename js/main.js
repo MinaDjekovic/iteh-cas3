@@ -117,15 +117,13 @@ $('#izmeniForm').submit(function () {
             location.reload(true);
             //$('#izmeniForm').reset;
         }
-        else { console.log('Kolokvijum nije izmenjen ' + response);
+        else console.log('Kolokvijum nije izmenjen ' + response);
         console.log(response);
-        location.reload(true);
-    }
+    
     });
 
     request.fail(function (jqXHR, textStatus, errorThrown) {
         console.error('The following error occurred: ' + textStatus, errorThrown);
-        location.reload(true);
     });
 
 
